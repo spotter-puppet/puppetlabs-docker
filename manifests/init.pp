@@ -178,10 +178,10 @@
 #   Array of shell values to pass into init script config files
 #
 # @param proxy
-#   Will set the http_proxy and https_proxy env variables in /etc/sysconfig/docker (redhat/centos) or /etc/default/docker (debian)
+#   Will set the http_proxy and https_proxy env variables in /etc/sysconfig/docker (el-derived) or /etc/default/docker (debian)
 #
 # @param no_proxy
-#   Will set the no_proxy variable in /etc/sysconfig/docker (redhat/centos) or /etc/default/docker (debian)
+#   Will set the no_proxy variable in /etc/sysconfig/docker (el-derived) or /etc/default/docker (debian)
 #
 # @param storage_driver
 #   Specify a storage driver to use
@@ -533,7 +533,8 @@ class docker (
     fail('You need to provide both $dm_datadev and $dm_metadatadev parameters for direct lvm.')
   }
 
-  if ($dm_basesize or $dm_fs or $dm_mkfsarg or $dm_mountopt or $dm_blocksize or $dm_loopdatasize or $dm_loopmetadatasize or $dm_datadev or $dm_metadatadev) and ($storage_driver != 'devicemapper') {
+  if ($dm_basesize or $dm_fs or $dm_mkfsarg or $dm_mountopt or $dm_blocksize or $dm_loopdatasize or $dm_loopmetadatasize or
+  $dm_datadev or $dm_metadatadev) and ($storage_driver != 'devicemapper') {
     fail('Values for dm_ variables will be ignored unless storage_driver is set to devicemapper.')
   }
 

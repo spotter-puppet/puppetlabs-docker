@@ -78,7 +78,7 @@ RSpec.configure do |c|
     if os[:family] == 'redhat' && os[:release].to_i == 7
       run_shell('yum -y install lvm2 device-mapper device-mapper-persistent-data device-mapper-event device-mapper-libs device-mapper-event-libs')
       run_shell('yum install -y yum-utils net-tools')
-      run_shell('yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo')
+      run_shell('yum-config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo')
       run_shell('yum-config-manager --enable docker\*')
     end
 

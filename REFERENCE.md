@@ -589,7 +589,7 @@ Default value: `undef`
 
 Data type: `Optional[String]`
 
-Will set the http_proxy and https_proxy env variables in /etc/sysconfig/docker (redhat/centos) or /etc/default/docker (debian)
+Will set the http_proxy and https_proxy env variables in /etc/sysconfig/docker (el-derived) or /etc/default/docker (debian)
 
 Default value: `$docker::params::proxy`
 
@@ -597,7 +597,7 @@ Default value: `$docker::params::proxy`
 
 Data type: `Optional[String]`
 
-Will set the no_proxy variable in /etc/sysconfig/docker (redhat/centos) or /etc/default/docker (debian)
+Will set the no_proxy variable in /etc/sysconfig/docker (el-derived) or /etc/default/docker (debian)
 
 Default value: `$docker::params::no_proxy`
 
